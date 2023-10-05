@@ -45,15 +45,3 @@ yarn-error.log*
 /public/robots.txt
 /public/sitemap.xml
 /public/rss/*
-
-# theme
-/themes/example
-/themes/fukasawa
-/themes/hexo
-/themes/landing
-/themes/matery
-/themes/medium
-/themes/next
-/themes/nobelium
-/themes/plog
-/themes/simple
