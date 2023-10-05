@@ -47,13 +47,13 @@ yarn-error.log*
 /public/rss/*
 
 # theme
-/themes/example/
-/themes/fukasawa/
-/themes/hexo/
-/themes/landing/
-/themes/matery/
-/themes/medium/
-/themes/next/
-/themes/nobelium/
-/themes/plog/
-/themes/simple/
+/themes/example
+/themes/fukasawa
+/themes/hexo
+/themes/landing
+/themes/matery
+/themes/medium
+/themes/next
+/themes/nobelium
+/themes/plog
+/themes/simple
