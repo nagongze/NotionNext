@@ -20,21 +20,74 @@ const WalineComponent = (props) => {
       waline.update(props)
     }
   }
+  const locale = {
+    profile: '個人資料',
+    approved: '通過',
+    waiting: '待審',
+    spam: '燒毀',
+    oldest: '按倒序',
+    latest: '按正序',
+    hottest: '按熱門度',
+    sticky: '釘選',
+    unsticky: '取消釘選',
+    login: '登入',
+    logout: '登出',
+    admin: '雫雫',
+    anonymous: '陌生人',
+    nick: '暱稱',
+    mail: '信箱',
+    link: '網址',
+    placeholder: '1. 暱稱留空可變匿名留言。\n2. 填寫信箱可收到Email通知。\n3. 圖片可直接貼上。\n4. 想修改留言需要登入帳號。',
+    sofa: '目前還沒有留言，來當第一個吧！',
+    submit: '傳送',
+    reply: '回覆',
+    cancelReply: '取消回覆',
+    comment: '留言',
+    preview: '預覽',
+    emoji: '表情',
+    seconds: '秒前',
+    minutes: '分鐘前',
+    hours: '小時前',
+    days: '天前',
+    now: '剛剛',
+    word: '字',
+    more: '載入更多...',
+    gifSearchPlaceholder: '搜尋GIF...',
+    uploadImage: '上傳圖片',
+    uploading: '正在上傳...',
+    mailError: '請填寫正確的信箱地址',
+    nickError: '暱稱不能少於3個字符',
+    wordHint: '留言字數應在 $0 到 $1 字之間！\n當前字數：$2'
+  }
 
   React.useEffect(() => {
     if (!waline) {
       waline = init({
         ...props,
         el: containerRef.current,
+        locale,
         serverURL: BLOG.COMMENT_WALINE_SERVER_URL,
-        lang: BLOG.lang,
-        reaction: true,
-        dark: 'html.dark',
-        emoji: [
-          '//npm.elemecdn.com/@waline/emojis@1.1.0/tieba',
-          '//npm.elemecdn.com/@waline/emojis@1.1.0/weibo',
-          '//npm.elemecdn.com/@waline/emojis@1.1.0/bilibili'
-        ]
+        emoji: false,
+        meta: ['nick', 'mail'],
+        search: false,
+        imageUploader: function (file) {
+          const myHeaders = new Headers()
+          myHeaders.append('Authorization', 'Client-ID ' + BLOG.IMGUR_CLIENT_ID)
+          const formdata = new FormData()
+          formdata.append('image', file)
+          const requestOptions = {
+            async: true,
+            crossDomain: true,
+            processData: false,
+            contentType: false,
+            method: 'POST',
+            headers: myHeaders,
+            body: formdata
+          }
+          return fetch('https://api.imgur.com/3/image', requestOptions)
+            .then((resp) => resp.json())
+            .then((resp) => resp.data.link)
+        }
       })
     }
 
