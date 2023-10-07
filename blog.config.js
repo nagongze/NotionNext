@@ -294,7 +294,7 @@ const BLOG = {
 
   COMMENT_WALINE_SERVER_URL: process.env.NEXT_PUBLIC_WALINE_SERVER_URL || 'https://waline.nagongze.me', // 请配置完整的Waline评论地址 例如 hhttps://preview-waline.tangly1024.com @see https://waline.js.org/guide/get-started.html
   COMMENT_WALINE_RECENT: process.env.NEXT_PUBLIC_WALINE_RECENT || true, // 最新评论
-  IMGUR_CLIENT_ID: process.env.IMGUR_CLIENT_ID || '22e14e52d10e8e46f98caa40564df056739b09bb', // Waline的Imgur設定
+  IMGUR_CLIENT_ID: process.env.NEXT_IMGUR_CLIENT_ID || '', // Waline的Imgur設定
 
   // 此评论系统基于WebMention，细节可参考https://webmention.io
   // 它是一个基于IndieWeb理念的开放式评论系统，下方COMMENT_WEBMENTION包含的属性皆需配置：
