@@ -31,16 +31,6 @@ class MyDocument extends Document {
 
                 <body className={`${BLOG.FONT_STYLE} font-light scroll-smooth`}>
                     <Main />
-                    <script>
-                      const beamsClient = new PusherPushNotifications.Client({
-                        instanceId: 'ffacfd04-1318-4bf3-a236-1ab1c84377f0',
-                      });
-
-                      beamsClient.start()
-                        .then(() => beamsClient.addDeviceInterest('hello'))
-                        .then(() => console.log('Successfully registered and subscribed!'))
-                        .catch(console.error);
-                    </script>
                     <NextScript />
                 </body>
             </Html>
