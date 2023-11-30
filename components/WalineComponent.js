@@ -73,7 +73,7 @@ const WalineComponent = (props) => {
         search: false,
         imageUploader: function (file) {
           const myHeaders = new Headers()
-          myHeaders.append('Authorization', 'Client-ID ' + BLOG.IMGUR_CLIENT_ID)
+          myHeaders.append('Authorization', 'Client-ID ' + siteConfig('IMGUR_CLIENT_ID'))
           const formdata = new FormData()
           formdata.append('image', file)
           const requestOptions = {
